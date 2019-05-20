@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pc_common.css"/>
+		<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+		
+	</head>
+	<style type="text/css">
+		/*我的滑动开始*/
+   	.myslip .swiper-container:nth-of-type(1){
+   		padding-top: 1.117647rem;
+	   	background: #FFFFFF;
+	   	height: 2.823529rem;
+	   	border-bottom: 1px solid #E8E8E8;
+   	}
+    .myslip .swiper-container:nth-of-type(2){
+	   	background: #FFFFFF;
+	   	position: relative;
+    }
+    .myslip .swiper-container:nth-of-type(2):after{
+	   	content: '';
+	   	width: 100%;
+	   	border-bottom:0.588235rem solid #F7F7F7 ;
+	   	position: absolute;
+	   	bottom: 0;
+	   	left: 0;
+    }
+    .swiper-slide-thumb-active{
+   		/*border-radius:0.235294rem;*/
+   		font-weight: 700;
+   		position: relative;
+    }
+    .swiper-slide-thumb-active:after{
+	   	content: '';
+	   	width: 2.470588rem;
+	   	height: 2px;
+	   	background:#CE0000;
+	   	border-radius:2px;
+	   	position: absolute;
+	   	bottom: 0;
+	   	left:0 ;
+	   	right: 0;
+	   	margin: 0 auto;
+    } 
+    .myslip .swiper-container:nth-of-type(2) .swiper-slide{
+    	padding-top: 1.058823rem;
+    	background: #FFFFFF;	
+    }
+    .myslip .swiper-container:nth-of-type(1) .swiper-wrapper{
+   		/*padding: 0 0.352941rem;*/
+    }
+    .myslip .swiper-container:nth-of-type(1) .swiper-slide{
+   	   width: auto !important;
+   	   margin-right:1.17647rem !important;
+   	   font-size: 0.823529rem;
+   	   font-family: '苹方中等';
+   	   color: #333333;
+    }
+    /*我的滑动结束*/
+		.tabContent1{
+			width: 74%;
+		}
+		.tabContent2{
+			width: 24%;
+		}
+		.header{
+			background: url(../img/xingheader.png) no-repeat;
+			background-size:100% 100%;
+			height: 10rem;
+		}
+		.header>p{
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: #FFFFFF;
+			text-align: center;
+			line-height: 4.4rem;
+		}
+		.header>div{
+			display: flex;
+			display:-webkit-box;
+			display: -webkit-flex;
+			display: -moz-box;
+			display: -ms-flexbox;
+			-webkit-justify-content: space-around;
+			-moz-justify-content:space-around;
+			-ms-justify-content: space-around;
+			-o-justify-content: space-around;
+			justify-content: space-around;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+			-ms-align-items: center;
+			-o-align-items: center;
+			width:31rem;
+			margin: 0 auto;
+		}
+		.header>div>div{
+			width: 10rem;
+			height: 3.2rem;
+			background: rgba(255,255,255,0.7);
+			text-align: center;
+			border-radius: 0.3rem;
+		}
+		.header>div>div>p:first-of-type{
+			font-size: 1rem;
+			color: #333333;
+			line-height: 1.5rem;
+		}
+		.header>div>div>p:last-of-type{
+			color: #D80C18;
+			font-weight: 700;
+			font-size:1.3rem;
+			line-height:1.5rem;
+		}
+		.icon-xingxing{
+			font-size:0.8rem;
+			color: #B9B9B9;
+		}
+		.xingactive{
+			color: #FDC127;
+		}
+		.tabContent1>section{
+			background: #FFFFFF;
+			width: 49%;
+			height: 38.5rem;
+		}
+		.tabContent1>section>.title{
+			font-size: 1rem;
+			height: 3rem;
+			display: inline-block;
+			font-family: "微软雅黑";
+		}
+		.tabContent1>section>div>img{
+			height: 1.3rem;
+			width: auto;
+			margin-left: 1.5rem;
+			margin-right: 0.5rem;
+			margin-top: 1rem;
+		}
+		#integral{
+			height: 35rem;
+			}
+	</style>
+	<body>
+		<article class="clear">
+			<div class="back">
+				<a href="  " onclick="Window.history.back(-1)"><<返回</ a>
+				星级评议
+			</div>
+			<div class="tabContent1 left clear">
+				<div class="header">
+					<p>星级评议</p>
+					<div id="">
+						<div class="">
+							<p>个人排名</p>
+							<p>NO.1</p>
+						</div>
+						<div class="">
+							<p>星级评议</p>
+							<p class="xing-all">
+								<i class="iconfont icon-xingxing xingactive"></i>
+								<i class="iconfont icon-xingxing"></i>
+								<i class="iconfont icon-xingxing"></i>
+								<i class="iconfont icon-xingxing"></i>
+								<i class="iconfont icon-xingxing"></i>
+							</p>
+						</div>
+						<div class="">
+							<p>个人排名</p>
+							<p>807</p>
+						</div>
+					</div>
+				</div>
+				<section class="left">
+					<div class="title">
+						<img src="../img/xing_tong.png" >
+						<span>积分分布图</span>
+					</div>
+					<div id="integral"></div>
+				</section>
+				<section class="right">
+						<div class="title">
+						<img src="../img/xing_tong.png" >
+						学习完成率
+					</div>
+					<div class="swiper-container myslip1">
+				        <div class="swiper-wrapper studylist">
+				            <div class="swiper-slide swiper-slide-item studyitem">     			
+			            		<div class="clearfix swiper-slide-header">
+		            				<div class="fll">
+		            					<img src="../images/jifen.png"/>
+		            				   <span class="title studytitle"></span>:<span class="title studyScore"></span>
+		            				</div>
+		            				<div class="flr slide-header-left">
+		            					<span>排名:</span><span class="studyRank"></span>
+		            				    <span class="see-detail">查看详情</span>
+		            				</div>
+			            		</div>
+			            		<div class="swiper-slide-content">
+			            			<div class="study-content">
+										<div id="study">	
+										</div>
+									</div>
+			            		</div>
+				        	</div>
+			    		</div>
+		    		</div>
+				</section>
+			</div>
+			<div class="tabContent2 right">
+				
+			</div>
+	</article>
+	
+	</body>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+	<script src="../js/swiper.min.js"></script>
+			
+		<script type="text/javascript">
+			
+			    var myslip4 = new Swiper('.myslip4', {
+		      	 spaceBetween: 10,
+			      slidesPerView:'auto',
+			      freeMode: true,
+			      watchSlidesVisibility: true,
+			      watchSlidesProgress: true,  
+			    });
+			    var myslip3 = new Swiper('.myslip3', {
+			     spaceBetween: 10,
+			      thumbs: {
+			        swiper: myslip4
+			      }
+			    });
+		</script>
+		<script type="text/javascript">
+			var integral = echarts.init(document.getElementById('integral'));
+					var studynameARR = [];
+					var studyscoreARR = [];
+					var yuanArr = [{name:"视频",value:70},{name:"评论",value:70},{name:"互动",value:70},{name:"心得",value:70},{name:"音频",value:70},{name:"新闻",value:70}];
+					var integraloption = {
+						color:['#4fa8e2', '#fdd727','#ea3827','#16a187','#2bcc6f','#fc983a'],
+					    tooltip : {
+					        trigger: 'item',
+					        formatter: "{a} <br/>{b} : {c} ({d}%)"
+					    },
+					    legend: {
+					    	type:'scroll',
+					    	left:0,
+					        top:0,
+					        data:yuanArr,
+					    },
+					    textStyle:{
+					    	fontSize:"0.823529rem",
+					    	fontFamily:"苹方",
+					    	color:"#333333"
+					    },
+					    series : [{
+				            name: '积分',
+				            type: 'pie',
+				            radius : '60%',
+				            center: ['50%', '40%'],
+				            data:yuanArr
+				        }]
+					};
+						integral.setOption(integraloption);
+						
+					
+				
+				// 指定图表的配置项和数据
+				var study = echarts.init(document.getElementById('study'));
+				var studyoption = {
+				    tooltip: {},
+				    xAxis: {
+				    	type : 'category',
+				    	interval: 0,
+				        data: studynameARR,
+				        axisLine: {
+							show: true,
+						},
+						axisTick: {
+							show: false
+						},
+				        axisLabel: {
+				            textStyle:{
+					    		fontSize:"14px",
+					    		fontFamily:"苹方",
+					    		color:"#333",
+					    		rotate: -45,
+					        },
+					   },
+				    },
+				    yAxis: {
+					 	type: 'value',
+				    	axisLabel: {
+				            textStyle:{
+						    	fontSize:"12px",
+						    	fontFamily:"苹方",
+						    	color:"#333333",
+						    },
+						},
+						
+				    },
+				    series: [{
+				    	label: {
+							normal: {
+								show: true,
+								position: 'top'
+							},
+						},
+				        name: '积分',
+				        type: 'bar',
+				        data: studyscoreARR,
+				        center: ['10%', '30%'],
+				        itemStyle: {
+				            normal: {
+				                color: new echarts.graphic.LinearGradient(
+				                    0, 0, 0, 1,
+				                    [ {offset: 1, color: '#ff9a84'},{offset: 0, color: '#ea3827'}]
+				                )
+				            },
+				        },
+				        barMaxWidth: '31px',
+				    }],
+				    grid: {
+				        x: 40,
+				        y: 25,
+				        x2: 0,
+				        y2: 40,
+				        backgroundColor: 'rgba(0,0,0,0)',
+				        borderWidth: 1,
+				    },
+				 }
+					// 使用刚指定的配置项和数据显示图表。
+					study.setOption(studyoption);
+		</script>
+</html>
