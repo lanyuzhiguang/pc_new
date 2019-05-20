@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pc_common.css"/>
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
+		
+	</head>
+	<style type="text/css">
+		html,body{
+			background: #FFFFFF;
+		}
+	</style>
+	<body>
+		<article class="clear">
+			<div class="back">
+			<a href=" "><<返回</ a>
+			通讯录
+		</div>
+		</article>
+	</body>
+	<script src="../layui/layui.js"></script>
+	<script>
+	layui.use(['element', 'form'], function(){
+		var $ = layui.jquery
+		, form = layui.form
+		,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+		//触发事件
+		  var active = {
+			tabChange: function(){
+			  //切换到指定Tab项
+			  element.tabChange('demo', '22'); //切换到：用户管理
+			}
+		  };
+  
+});
+</script>
+</html>

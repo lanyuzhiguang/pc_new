@@ -1,0 +1,15 @@
+.back {
+	font-family: "苹方";
+	height: 2.25rem;
+	line-height: 2.25rem;
+	font-size: 0.9rem;
+	border-bottom: 1px solid #E8E8E8;
+	padding-left: 1.6rem;
+	color: #6a6a6a;
+	background: #fff;
+}
+.back>a {
+	font-family: "苹方";
+	color: #6a6a6a;
+	font-size: 0.9rem;
+}
