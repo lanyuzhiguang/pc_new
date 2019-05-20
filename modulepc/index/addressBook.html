@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>通讯录</title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pc_common.css"/>
+		<style type="text/css">
+			html,body {
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.con_box {
+				width: 100%;
+				height: calc(100% - 2.25rem);
+				height: -webkit-calc(100% - 2.25rem);
+				height: -moz-calc(100% - 2.25rem);
+			}
+			article {
+				width: 79.75%;
+			}
+			aside {
+				width: 19.03%;
+				height: 100%;
+				background: #ffffff;
+			}
+			.aside_head {
+				padding: 1.1rem 0 2rem 0.5rem;
+			}
+			.aside_head>img{
+				width: 2.75rem;
+				height: 2.75rem;
+			}
+			.searchBox {
+				position: relative;
+				width: 10rem;
+				height: 1.5rem;
+				background: #F7F7F7;
+				border-radius: 0.7rem;
+				margin-top: 0.6rem;
+				margin-left: 0.85rem;
+			}
+			.searchBox>img {
+				width: 0.8rem;
+				height: 0.8rem;
+				line-height: 1.5rem;
+				position: absolute;
+				top: 0.35rem;
+				left: 0.5rem;
+			}
+			.searchBox>input {
+				width: 100%;
+				padding-left: 1.8rem;
+				height: 1.5rem;
+				line-height: 1.5rem;
+				font-size: 0.8rem;
+			}
+			.userListBox>.userListHead {
+				font-size: 1rem;
+				color: #333333;
+				padding: 0 1rem 0.75rem 1rem;
+			}
+			.userList>li {
+				padding: 0.75rem 1rem;
+				position: relative;
+			}
+			.userList>li:hover {
+				background: #e7e6e6;
+			}
+			.userList>li:after {
+				content: '';
+				width: 90%;
+				position: absolute;
+				border-bottom: 1px solid #e8e8e8;
+				bottom: 0;
+				left: 0;
+				margin: 0 5%;
+			}
+			.userList>li.userList_Letter {
+				margin: 0 0.5rem;
+				height: 1.1rem;
+				line-height: 1.1rem;
+				background: #F7F7F7;
+				padding: 0 0.5rem;
+				font-size: 0.8rem;
+				color: #666666;
+			}
+			.userList>li:last-of-type:after,.userList>li.userList_Letter:after {
+				border: none;
+			}
+			.userList>li>img {
+				width: 2.75rem;
+				height: 2.75rem;
+			}
+			.userList>li>div {
+				display: inline-block;
+				margin-left: 0.5rem;
+			}
+			.userName {
+				font-size: 1rem;
+				line-height: 1.4rem;
+			}
+			.bumenName,.partyMemberType {
+				font-size: 0.7rem;
+				color: #666666;
+				line-height: 1.1rem;
+			}
+			.userHead {
+				width: 100%;
+				height: 16rem;
+				background: url(../img/userbg.png) no-repeat;
+				background-size: 100% 100%;
+				text-align: center;
+				padding-top: 2.6rem;
+			}
+			.userHead>img {
+				width: 4.8rem;
+				height: 4.8rem;
+				border-radius: 50%;
+			}
+			.userHeadName {
+				width: 100%;
+				font-size: 1.3rem;
+				color: #333333;
+				line-height: 2.4rem;
+			}
+			.bumenHeadName,.partyMemberHeadType {
+				width: 100%;
+				font-size: 0.9rem;
+				color: #333333;
+				line-height: 1.4rem;
+			}
+			/* 互动 */
+			.messageList li {
+				width: 100%;
+				margin-bottom: 0.5rem;
+				background: #FAFAFA;
+				padding-bottom: 0.6rem;
+			}
+			.wrapB {
+				width: 93%;
+				overflow: hidden;
+				margin: auto;
+				font-size: 0.7rem;
+				padding-top: 1rem;
+			}
+			.hr32 {
+				margin: 1.6rem 0 0.5rem 0;
+			}
+			.hr-dotted {
+				border-style: dotted;
+			}
+			.hr {
+				display: block;
+				height: 0;
+				overflow: hidden;
+				font-size: 0;
+				border-width: 1px 0 0 0;
+				border-top: 1px solid #E3E3E3;
+				margin: 0.6rem 0;
+				border-top-color: rgba(0, 0, 0, 0.11);
+			}
+			.grid3 {
+				padding-left: 0.5rem;
+				padding-right: 0.5rem;
+				width: auto;
+				float: right;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+				border-left: 1px solid #E3E3E3;
+			}
+			.grid3 i {
+				color: #a069c3;
+				font-size: 0.6rem;
+				cursor: pointer;
+				text-align: center;
+				font-style: normal;
+			}
+			.grid3 i span {
+				color: #428bca;
+				margin-left: 0.15rem;
+				font-size: 0.6rem;
+			}
+			a {
+				color: #428bca;
+				text-decoration: none;
+			}
+			.ListC>img {
+				width: 2.5rem;
+				height: 2.5rem;
+				border: 1px solid transparent;
+				border-radius: 3.65rem;
+			}
+			.nameW {
+				color: #2196f3;
+				font-size: 1rem;
+			}
+			.zuW {
+				float: right;
+				background: red;
+				color: #ffffff;
+				padding: 0px 0.4rem;
+				border-radius: 0.25rem;
+			}
+			.timeB {
+				margin-bottom: 0.5rem;
+				font-size: 0.7rem;
+				color: #999999;
+			}
+			.ListC>p {
+				margin: 0 0 0.5rem;
+			}
+			.imgB img {
+				width: 6rem;
+				margin-right: 0.5rem;
+				height: 6rem;
+				vertical-align: middle;
+			}
+			.messageBox {
+				background: #FFFFFF;
+				padding: 1.5rem 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="back">
+			<a href="history.go(-1)"><<返回</a>
+			通讯录
+		</div>
+		<div class="con_box clear">
+			<aside class="left">
+				<div class="aside_head clear">
+					<img class="left" src="../img/head.jpg" alt="头像缺失">
+					<div class="searchBox left">
+						<img src="../img/search.png" >
+						<input type="text" placeholder="搜索">
+					</div>
+				</div>
+				<div class="userListBox">
+					<div class="userListHead">
+						通讯录
+					</div>
+					<ul class="userList">
+						<li class="userList_Letter">C</li>
+						<li>
+							<img src="../img/head.jpg" >
+							<div class="userDetail">
+								<div class="userName">陈华</div>
+								<div class="bumenName">示范党委第一党支部</div>
+								<div class="partyMemberType">正式党员</div>
+							</div>
+						</li>
+						<li>
+							<img src="../img/head.jpg" >
+							<div class="userDetail">
+								<div class="userName">陈华</div>
+								<div class="bumenName">示范党委第一党支部</div>
+								<div class="partyMemberType">正式党员</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</aside>
+			<article class="right">
+				<div class="userHead">
+					<img src="../img/head.jpg" >
+					<div class="userHeadName">陈华</div>
+					<div class="bumenHeadName">示范党委第一党支部</div>
+					<div class="partyMemberHeadType">正式党员</div>
+				</div>
+				<div class="messageBox">
+					<ul class="messageList">
+						<li>
+							<div class="wrapB">
+								<div class="ListC left" style="width:6%">
+									<img src="http://qiniu.thdangjian.com/9697547968548865813899.jpg">
+								</div>
+								<div class="ListC right" style="width:94%">
+									<div class="sp">
+										<span class="nameW">柴星辰</span>
+										<span class="zuW">公开</span>
+									</div>
+									<div class="timeB">2019-05-17 17:16:21</div>
+									<p>党建审核</p>
+									<div class="imgB">
+										<a href="http://priqiniu.thdangjian.com/24613259433783658475808.png!square?e=1558337674&amp;token=jTcfol4-k8brE-8ydNzSjIeyQx5iASCQda3yJEkZ:nrxjMFGtc0KQlkNHTeQ7lMXRqVs=">
+											<img class="fancyzoom" src="http://priqiniu.thdangjian.com/24613259433783658475808.png!preview?e=1558337674&amp;token=jTcfol4-k8brE-8ydNzSjIeyQx5iASCQda3yJEkZ:r_V1PaNqX6xGqdqFoqSkPqPo7yY=" style="cursor: pointer;">
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="hr hr32 hr-dotted"></div>
+							<div class="clear">
+								<div class="grid3 huoyJ" style="padding-left:10px;padding-right:40px;">
+									<i class="ace-icon fa icon-pinglun iconfont fa-2x ">
+										<span>
+											<a href="javascript:void(0);">评论</a>
+										</span>(0)
+									</i>
+								</div>
+								<div class="grid3 huoyJ" style="padding-left:10px;padding-right:10px;">
+									<i class="ace-icon fa  icon-dianzan iconfont fa-2x zanx_" zend="false">
+										<span>点赞(0)</span>
+									</i>
+								</div>
+								<div class="grid3 huoyJ" style="padding-left:10px;padding-right:10px;">
+									<i class="ace-icon fa  icon-shoucang iconfont fa-2x favorx_" favored="false">
+										<span>收藏</span>
+									</i>
+								</div>
+								<div class="grid3 stuJ"></div>
+								<div class="grid3 myJ" style="padding-left:10px;padding-right:10px;">
+									<i class="ace-icon fa icon-jubao1  iconfont  fa-2x purple">
+										<span>
+											<a href="javascript:void(0);">举报</a>
+										</span>
+									</i>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</div>
+	</body>
+</html>
