@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>活动统计</title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pc_common.css" />
+		<link rel="stylesheet" type="text/css" href="../static/ztree/css/zTreeStyle/zTreeStyle.css"/>
+		<style type="text/css">
+			html,body {
+				width: 100%;
+				height: 100%;
+			}
+			.back,.headTitle {
+				position: relative;
+				z-index: 1;
+			}
+			article {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				padding: 6.85rem 1.5rem 2rem 1.5rem;
+				background: #FFFFFF;
+			}
+			.headTitle>div {
+				border: none;
+			}
+			aside {
+				height: 100%;
+				width: 27.17%;
+				border: 1px solid #E8E8E8;
+				padding: 1.5rem 1rem;
+				overflow: auto;
+			}
+			section {
+				width: 70.94%;
+				height: 100%;
+				position: relative;
+			}
+			.timeBox {
+				position: relative;
+				z-index: 2;
+			}
+			.layui-form-label {
+				width: auto;
+			}
+			.layui-input {
+				height: 1.9rem;
+			}
+			.layui-form-label,.layui-form-mid {
+				font-size: 0.9rem;
+				line-height: 0.9rem;
+				padding: 0.5rem 0.75rem 0.5rem 0 !important;
+			}
+			.conBox {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-top: 3rem;
+			}
+			.conBox>div {
+				width: 100%;
+				height: 100%;
+				border: 1px solid #E8E8E8;
+			}
+			.con_title {
+				text-align: center;
+				font-size: 1.3rem;
+				padding: 2.5rem 0 2rem 0;
+				font-weight: bold;
+			}
+			.situationBox {
+				width: 34.7rem;
+				margin: 0 auto;
+			}
+			.situationBox>li {
+				width: 10.3rem;
+				margin-right: 1.9rem;
+				height: 4.5rem;
+				background-color: #f2f6fa;
+				border: 0.2rem;
+				text-align: center;
+				padding-top: 0.6rem;
+			}
+			.situationBox>li:last-of-type {
+				margin-right: 0;
+			}
+			.situationBox>li>p:first-of-type {
+				font-size: 1.3rem;
+				color: #ffc200;
+			}
+			.situationBox>li>p:first-of-type>strong {
+				font-weight: 400;
+				font-size: 1.7rem;
+				color: #ffc200;
+				margin-right: 0.4rem;
+			}
+			.situationBox>li>p:last-of-type {
+				font-size: 0.9rem;
+				line-height: 1.2rem;
+			}
+			#echarts1 {
+				width: 100%;
+				height: 22.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="back">
+			<a href="history.go(-1)"><<返回</a> 活动统计
+		</div>
+		<header class="headTitle">
+			<div>
+				<div class="iconBar"></div>活动统计
+			</div>
+		</header>
+		<article class="clear">
+			<aside class="left">
+				<ul id="treeDemo" class="ztree"></ul>
+			</aside>
+			<section class="right">
+				<div class="timeBox">
+					<div class="layui-form" wid100>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">选择时间：</label>
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="test-laydate-start" placeholder="请选择">
+								</div>
+								<div class="layui-form-mid">
+									-
+								</div>
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="test-laydate-end" placeholder="请选择">
+								</div>
+								<div class="layui-input-inline">
+									<button class="searchBtn">查询</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="conBox">
+					<div class="">
+						<h2 class="con_title">最近一周开展情况</h2>
+						<ul class="situationBox clear">
+							<li class="left">
+								<p>
+									<strong>12</strong>场
+								</p>
+								<p>最近7天开展</p>
+							</li>
+							<li class="left">
+								<p>
+									<strong>2</strong>场
+								</p>
+								<p>今天开展</p>
+							</li>
+							<li class="left">
+								<p>
+									<strong>0</strong>场
+								</p>
+								<p>计划开展</p>
+							</li>
+						</ul>
+						<div id="echarts1"></div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>
+<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/clientWidth.js" type="text/javascript" charset="utf-8"></script>
+<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script src="../static/ztree/js/jquery.ztree.core.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	layui.use(['laydate'], function(){
+		var laydate = layui.laydate;
+		//开始日期
+		var insStart = laydate.render({
+			elem: '#test-laydate-start'
+			,min: 0
+			,done: function(value, date){
+			//更新结束日期的最小日期
+			insEnd.config.min = lay.extend({}, date, {
+				month: date.month - 1
+			});
+        
+			//自动弹出结束日期的选择器
+				insEnd.config.elem[0].focus();
+			}
+		});
+    
+		//结束日期
+		var insEnd = laydate.render({
+			elem: '#test-laydate-end'
+			,min: 0
+			,done: function(value, date){
+				//更新开始日期的最大日期
+				insStart.config.max = lay.extend({}, date, {
+					month: date.month - 1
+				});
+			}
+		});
+		
+		//ztree
+		var setting = {
+			view: {
+				showLine: false
+			}
+		};
+
+		var zNodes =[
+			{ name:"父节点1 - 展开", open:true,
+				children: [
+					{ name:"父节点11 - 折叠",
+						children: [
+							{ name:"叶子节点111"},
+							{ name:"叶子节点112"},
+							{ name:"叶子节点113"},
+							{ name:"叶子节点114"}
+						]},
+					{ name:"父节点12 - 折叠",
+						children: [
+							{ name:"叶子节点121"},
+							{ name:"叶子节点122"},
+							{ name:"叶子节点123"},
+							{ name:"叶子节点124"}
+						]},
+					{ name:"父节点13 - 没有子节点", isParent:true}
+				]},
+			{ name:"父节点2 - 折叠",
+				children: [
+					{ name:"父节点21 - 展开", open:true,
+						children: [
+							{ name:"叶子节点211"},
+							{ name:"叶子节点212"},
+							{ name:"叶子节点213"},
+							{ name:"叶子节点214"}
+						]},
+					{ name:"父节点22 - 折叠",
+						children: [
+							{ name:"叶子节点221"},
+							{ name:"叶子节点222"},
+							{ name:"叶子节点223"},
+							{ name:"叶子节点224"}
+						]},
+					{ name:"父节点23 - 折叠",
+						children: [
+							{ name:"叶子节点231"},
+							{ name:"叶子节点232"},
+							{ name:"叶子节点233"},
+							{ name:"叶子节点234"}
+						]}
+				]},
+			{ name:"父节点3 - 没有子节点", isParent:true}
+
+		];
+
+		$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		
+		// echarts1
+		initLineData($("#echarts1")[0],[820, 932, 901, 934, 1290, 1330, 1320],['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],['#8abcff','#f0f5f9']);
+		function initLineData(elem,dataArr,namearr,colorarr) {
+		    var myChart = echarts.init(elem);
+		    var xAxisData =namearr;
+		    var seriesData =dataArr;
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: false,
+					data: xAxisData
+				},
+				yAxis: {
+					type: 'value'
+				},
+				grid: {
+				    left: '3%',
+				    right: '7%',
+				    bottom: '10%',
+				    top: "15%",
+				    containLabel: true
+				},
+				series: [{
+					data: seriesData,
+					type: 'line',
+					itemStyle: {  
+						normal: {   //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+									offset: 0, color: colorarr[0] // 0% 处的颜色
+								},  {
+									offset: 1, color: colorarr[1] // 100% 处的颜色
+								}]
+							),  //背景渐变色 
+							lineStyle: {        // 系列级个性化折线样式  
+								width: 3,  
+								type: 'solid',  
+								 color: "#4fd6d2"
+							}
+						},  
+						emphasis: {  
+							color: '#468cdc',  
+							lineStyle: {        // 系列级个性化折线样式  
+								width:2,  
+								type: 'dotted',  
+								color: "#468cdc" //折线的颜色
+							}  
+						}  
+					},
+					areaStyle: {}
+				}]
+			};
+		    if (option && typeof option === "object") {
+		        myChart.setOption(option, true);
+		    }
+		}
+	});
+</script>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>发展党员统计</title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/pc_common.css" />
+		<link rel="stylesheet" type="text/css" href="../static/ztree/css/zTreeStyle/zTreeStyle.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/custom-styles.css"/>
+		<style type="text/css">
+			html,body {
+				width: 100%;
+				height: 100%;
+			}
+			.back,.headTitle {
+				position: relative;
+				z-index: 1;
+			}
+			article {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 0;
+				top: 0;
+				left: 0;
+				padding: 6.85rem 1.5rem 2rem 1.5rem;
+				background: #FFFFFF;
+			}
+			.headTitle>div {
+				border: none;
+			}
+			aside {
+				height: 100%;
+				width: 27.17%;
+				border: 1px solid #E8E8E8;
+				padding: 1.5rem 1rem;
+				overflow: auto;
+			}
+			section {
+				width: 70.94%;
+				height: 100%;
+				position: relative;
+			}
+			.timeBox {
+				position: relative;
+				z-index: 2;
+			}
+			.layui-form-label {
+				width: auto;
+			}
+			.layui-input {
+				height: 1.9rem;
+			}
+			.layui-form-label,.layui-form-mid {
+				font-size: 0.9rem;
+				line-height: 0.9rem;
+				padding: 0.5rem 0.75rem 0.5rem 0 !important;
+			}
+			.conBox {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-top: 3rem;
+			}
+			.conBox>div {
+				width: 100%;
+				height: 100%;
+				border: 1px solid #E8E8E8;
+			}
+			.conBox>div>div {
+				width: 100%;
+				height: 50%;
+			}
+			.conBox>div>div:first-of-type {
+				border-bottom: 1px solid #E8E8E8;
+			}
+			.conTop>ul {
+				height: 100%;
+				display: box;
+				display:-webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				webkit-box-pack: space-around;
+				-webkit-justify-content: space-around;
+				justify-content: space-around;
+				-moz-box-pack: space-around;
+				-webkit--moz-box-pack: space-around;
+				box-pack: space-around;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				-ms-align-items: center;
+				-o-align-items: center;
+				align-items: center;
+			}
+			.conTop>ul>li>p {
+				text-align: center;
+				font-size: 1rem;
+			}
+			.conBottom {
+				padding: 4rem 3.75rem;
+			}
+			.conBottom table {
+				width: 100%;
+			}
+			.table tr>td {
+				border: 1px solid #a49693;
+				font-size: 1rem;
+				text-align: center;
+				height: 3.8rem;
+				vertical-align: middle;
+			}
+			.table tr:first-of-type>td {
+				background: #fbe5e7;
+			}
+			.table tr:last-of-type>td {
+				color: #ce0000;
+				font-size: 1.4rem;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="back">
+			<a href="history.go(-1)"><<返回</a> 发展党员统计
+		</div>
+		<header class="headTitle">
+			<div>
+				<div class="iconBar"></div>发展党员统计
+			</div>
+		</header>
+		<article class="clear">
+			<aside class="left">
+				<ul id="treeDemo" class="ztree"></ul>
+			</aside>
+			<section class="right">
+				<div class="timeBox">
+					<div class="layui-form" wid100>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">选择时间：</label>
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="test-laydate-start" placeholder="请选择">
+								</div>
+								<div class="layui-form-mid">
+									-
+								</div>
+								<div class="layui-input-inline">
+									<input type="text" class="layui-input" id="test-laydate-end" placeholder="请选择">
+								</div>
+								<div class="layui-input-inline">
+									<button class="searchBtn">查询</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="conBox">
+					<div class="">
+						<div class="conTop">
+							<ul>
+								<li>
+									<div id="easypiechart-blue" class="easypiechart" data-percent="24">
+										<span class="num">12 人</span>
+										<span class="percent">24%</span>
+									</div>
+									<p>入党申请人</p>
+								</li>
+								<li>
+									<div id="easypiechart-orange" class="easypiechart" data-percent="24">
+										<span class="num">12 人</span>
+										<span class="percent">24%</span>
+									</div>
+									<p>积极分子</p>
+								</li>
+								<li>
+									<div id="easypiechart-teal" class="easypiechart" data-percent="16">
+										<span class="num">8 人</span>
+										<span class="percent">16%</span>
+									</div>
+									<p>发展对象</p>
+								</li>
+								<li>
+									<div id="easypiechart-red" class="easypiechart" data-percent="20">
+										<span class="num">10 人</span>
+										<span class="percent">20%</span>
+									</div>
+									<p>预备党员</p>
+								</li>
+								<li>
+									<div id="easypiechart-zi" class="easypiechart" data-percent="40">
+										<span class="num">20 人</span>
+										<span class="percent">40%</span>
+									</div>
+									<p>预备党员转正</p>
+								</li>
+							</ul>
+						</div>
+						<div class="conBottom">
+							<table class="table">
+								<tr>
+									<td>入党申请人</td>
+									<td>积极分子</td>
+									<td>发展党员</td>
+									<td>预备党员</td>
+									<td>预备党员转正</td>
+								</tr>
+								<tr>
+									<td>12</td>
+									<td>12</td>
+									<td>8</td>
+									<td>10</td>
+									<td>20</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>
+<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/clientWidth.js" type="text/javascript" charset="utf-8"></script>
+<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script src="../static/ztree/js/jquery.ztree.core.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/easypiechart-data.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/easypiechart.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	layui.use(['laydate'], function(){
+		var laydate = layui.laydate;
+		//开始日期
+		var insStart = laydate.render({
+			elem: '#test-laydate-start'
+			,min: 0
+			,done: function(value, date){
+			//更新结束日期的最小日期
+			insEnd.config.min = lay.extend({}, date, {
+				month: date.month - 1
+			});
+        
+			//自动弹出结束日期的选择器
+				insEnd.config.elem[0].focus();
+			}
+		});
+    
+		//结束日期
+		var insEnd = laydate.render({
+			elem: '#test-laydate-end'
+			,min: 0
+			,done: function(value, date){
+				//更新开始日期的最大日期
+				insStart.config.max = lay.extend({}, date, {
+					month: date.month - 1
+				});
+			}
+		});
+		
+		//ztree
+		var setting = {
+			view: {
+				showLine: false
+			}
+		};
+
+		var zNodes =[
+			{ name:"父节点1 - 展开", open:true,
+				children: [
+					{ name:"父节点11 - 折叠",
+						children: [
+							{ name:"叶子节点111"},
+							{ name:"叶子节点112"},
+							{ name:"叶子节点113"},
+							{ name:"叶子节点114"}
+						]},
+					{ name:"父节点12 - 折叠",
+						children: [
+							{ name:"叶子节点121"},
+							{ name:"叶子节点122"},
+							{ name:"叶子节点123"},
+							{ name:"叶子节点124"}
+						]},
+					{ name:"父节点13 - 没有子节点", isParent:true}
+				]},
+			{ name:"父节点2 - 折叠",
+				children: [
+					{ name:"父节点21 - 展开", open:true,
+						children: [
+							{ name:"叶子节点211"},
+							{ name:"叶子节点212"},
+							{ name:"叶子节点213"},
+							{ name:"叶子节点214"}
+						]},
+					{ name:"父节点22 - 折叠",
+						children: [
+							{ name:"叶子节点221"},
+							{ name:"叶子节点222"},
+							{ name:"叶子节点223"},
+							{ name:"叶子节点224"}
+						]},
+					{ name:"父节点23 - 折叠",
+						children: [
+							{ name:"叶子节点231"},
+							{ name:"叶子节点232"},
+							{ name:"叶子节点233"},
+							{ name:"叶子节点234"}
+						]}
+				]},
+			{ name:"父节点3 - 没有子节点", isParent:true}
+
+		];
+
+		$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		
+	});
+</script>
