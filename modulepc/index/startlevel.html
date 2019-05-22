@@ -12,34 +12,33 @@
 	</head>
 	<style type="text/css">
 		/*我的滑动开始*/
+		.back{
+			background: #F7F7F7;
+			border: none;
+		}
+		.myslip{
+			padding: 0 2.05rem;
+		}
    	.myslip .swiper-container:nth-of-type(1){
    		padding-top: 1.117647rem;
 	   	background: #FFFFFF;
 	   	height: 2.823529rem;
 	   	border-bottom: 1px solid #E8E8E8;
+		font-size: 0.9rem;
+		color: #333333;
    	}
     .myslip .swiper-container:nth-of-type(2){
 	   	background: #FFFFFF;
 	   	position: relative;
     }
-    .myslip .swiper-container:nth-of-type(2):after{
-	   	content: '';
-	   	width: 100%;
-	   	border-bottom:0.588235rem solid #F7F7F7 ;
-	   	position: absolute;
-	   	bottom: 0;
-	   	left: 0;
-    }
     .swiper-slide-thumb-active{
-   		/*border-radius:0.235294rem;*/
-   		font-weight: 700;
    		position: relative;
     }
     .swiper-slide-thumb-active:after{
 	   	content: '';
 	   	width: 2.470588rem;
 	   	height: 2px;
-	   	background:#CE0000;
+	   	background:#D80C18;
 	   	border-radius:2px;
 	   	position: absolute;
 	   	bottom: 0;
@@ -48,17 +47,13 @@
 	   	margin: 0 auto;
     } 
     .myslip .swiper-container:nth-of-type(2) .swiper-slide{
-    	padding-top: 1.058823rem;
     	background: #FFFFFF;	
-    }
-    .myslip .swiper-container:nth-of-type(1) .swiper-wrapper{
-   		/*padding: 0 0.352941rem;*/
     }
     .myslip .swiper-container:nth-of-type(1) .swiper-slide{
    	   width: auto !important;
    	   margin-right:1.17647rem !important;
-   	   font-size: 0.823529rem;
-   	   font-family: '苹方中等';
+   	   font-size: 0.9rem;
+   	   font-family: '微软雅黑';
    	   color: #333333;
     }
     /*我的滑动结束*/
@@ -127,28 +122,170 @@
 			background: #FFFFFF;
 			width: 49%;
 			height: 38.5rem;
+			margin-top: 1rem;
 		}
 		.tabContent1>section>.title{
 			font-size: 1rem;
 			height: 3rem;
 			display: inline-block;
 			font-family: "微软雅黑";
+			line-height: 3rem;
 		}
 		.tabContent1>section>div>img{
 			height: 1.3rem;
 			width: auto;
 			margin-left: 1.5rem;
 			margin-right: 0.5rem;
-			margin-top: 1rem;
+			vertical-align: middle;
 		}
 		#integral{
 			height: 35rem;
-			}
+		}
+		.shuji{
+			height:10rem;
+			background: url(../img/shuji_bg.png) no-repeat;
+			background-size: 100% 100%;
+			text-align: center;
+			padding: 0 1rem;
+		}
+		.shuji img{
+			height: 1.7rem;
+			width: auto;
+			margin-top: 1.5rem;
+			
+		}
+		.shuji>div{
+			padding-top: 0.5rem;
+			text-align: left;
+			font-size: 1rem;
+			line-height: 1.8rem;
+			color: #5091c6;
+		}
+		.shuji>p{
+			text-align: right;
+			font-size: 0.8rem;
+			color: #5091c6;
+		}
+		.rank-all{
+			margin-top: 1rem;
+			height: 37.5rem;
+		}
+		.rank-all>div{
+			height: 3rem;
+			background: #e21539;
+			font-size: 1.1rem;
+			font-weight: 700;
+			line-height: 3rem;
+			color: #FFFFFF;
+			width: 100%;
+			text-align: center;
+		}
+		.rank-all>ul{
+			height: 34.5rem;
+			background: #FFFFFF;
+			padding-top: 0.4rem;
+		}
+		.rank-all>ul>li{
+			width: 15.4rem;
+			height: 9.7rem;
+			background: url(../img/xing_ji.png) no-repeat;
+			background-size: 100% 100%;
+			margin: 0 auto;
+			margin-top: 1rem;
+			padding-top: 1.1rem;
+			text-align: center;
+		}
+		.rank-all>ul>li>div{
+			text-align: center;
+			position: relative;
+			font-size: 1rem;
+			color: #333333;
+		}
+		.rank-all>ul>li>div:last-of-type{
+			padding-top: 0.3rem;
+			line-height: 1.6rem;
+		}
+		.rank-all>ul>li>p{
+			font-weight: 700;
+			font-size: 1.3rem;
+			color: #f09034;
+			line-height: 1.9rem;
+		}
+		.rank-all>ul>li>div>img{
+			height: 4rem;
+			width: 4rem;
+			border-radius: 50%;
+		}
+		.rank-all>ul>li>div>div{
+			height: 1.3rem;
+			width: 4.1rem;
+			border-radius: 0.65rem;
+			font-size: 1rem;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: 0 auto;
+			background: #e1e6e9;
+			color: #666666;
+		}
+		.rank-all>ul>li:first-of-type>div>div{
+			background: #fdc127;
+			color: #a3510f;
+		}
+		.studyitem>.studyitem-header{
+			height: 4.85rem;
+			display: flex;
+			display:-webkit-box;
+			display: -webkit-flex;
+			display: -moz-box;
+			display: -ms-flexbox;
+			-webkit-justify-content: space-between;
+			-moz-justify-content: space-between;
+			-ms-justify-content: space-between;
+			-o-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+			-ms-align-items: center;
+			-o-align-items: center;
+			
+		}
+		.studyitem>.studyitem-header>div>span{
+			font-size: 1rem;
+			vertical-align: middle;
+			display: inline-block;
+		}
+		.studyitem>.studyitem-header>div:last-of-type>span{
+			color: #d80c18;
+		}
+		.studyitem>.studyitem-header>div>p{
+			font-size: 1rem;
+			display: inline-block;
+			color: #D80C18;
+			height: 1.7rem;
+			width: 6.05rem;
+			border: 1px solid #d80c18;
+			border-radius: 0.85rem;
+			text-align: center;
+			/* line-height: 1.7rem; */
+			vertical-align: middle;
+			margin-left: 1rem;
+		}
+		.studyitem>.studyitem-header img{
+			height: 1.3rem;
+			width: auto;
+			vertical-align: middle;
+		}
+		.study{
+			height: 20.6rem;
+		}
 	</style>
 	<body>
 		<article class="clear">
 			<div class="back">
-				<a href="  " onclick="Window.history.back(-1)"><<返回</ a>
+				<a href="javascript:;" onclick="history.back(-1)"><<返回</ a>
 				星级评议
 			</div>
 			<div class="tabContent1 left clear">
@@ -184,35 +321,81 @@
 				</section>
 				<section class="right">
 						<div class="title">
-						<img src="../img/xing_tong.png" >
+						<img src="../img/xing_lv.png" >
 						学习完成率
 					</div>
-					<div class="swiper-container myslip1">
+					<div class="myslip">
+			    	<div class="swiper-container myslip2">
+				        <div class="swiper-wrapper  navlist">
+				            <div class="swiper-slide navitem">学习积分</div>
+							<div class="swiper-slide ">学习积分</div>
+				        </div>
+			    	</div>
+		    		<div class="swiper-container myslip1">
 				        <div class="swiper-wrapper studylist">
-				            <div class="swiper-slide swiper-slide-item studyitem">     			
-			            		<div class="clearfix swiper-slide-header">
-		            				<div class="fll">
-		            					<img src="../images/jifen.png"/>
-		            				   <span class="title studytitle"></span>:<span class="title studyScore"></span>
-		            				</div>
-		            				<div class="flr slide-header-left">
-		            					<span>排名:</span><span class="studyRank"></span>
-		            				    <span class="see-detail">查看详情</span>
-		            				</div>
-			            		</div>
-			            		<div class="swiper-slide-content">
-			            			<div class="study-content">
-										<div id="study">	
+				            <div class="swiper-slide swiper-slide-item studyitem">  
+									<div class="studyitem-header">
+										<div class="">
+											<img src="../img/ji_img.png" >
+											<span>学习积分：187</span>	
+										</div>
+										<div class="">
+											<span>排名：1</span>
+											<p>查看详情</p>
 										</div>
 									</div>
-			            		</div>
+									<div class="study" id="study">
+										
+									</div>
 				        	</div>
+							  <div class="swiper-slide swiper-slide-item studyitem">     			
+								2
 			    		</div>
 		    		</div>
+        		</div>
+				</div>
 				</section>
+			
 			</div>
 			<div class="tabContent2 right">
-				
+				<section class="shuji">
+					<img src="../img/shuji.png" >
+					<div class="">
+						就在上周，美国总统特朗普签署行政命令，宣布美国进入“紧急状态”，美国
+					</div>
+					<p class="">
+						——2018-12月-9日
+					</p>
+				</section>
+				<section class="rank-all">
+					<div >积分排名</div>
+					<ul>
+						<li>
+							<div class="">
+								<img src="../img/head.jpg" >
+								<div class="">NO.1</div>
+							</div>
+							<div>张良</div>
+							<p>187</p>
+						</li>
+						<li>
+							<div class="">
+								<img src="../img/head.jpg" >
+								<div class="">NO.1</div>
+							</div>
+							<div>张良</div>
+							<p>187</p>
+						</li>
+						<li>
+							<div class="">
+								<img src="../img/head.jpg" >
+								<div class="">NO.1</div>
+							</div>
+							<div>张良</div>
+							<p>187</p>
+						</li>
+					</ul>
+				</section>
 			</div>
 	</article>
 	
@@ -222,24 +405,24 @@
 			
 		<script type="text/javascript">
 			
-			    var myslip4 = new Swiper('.myslip4', {
+			    var myslip2 = new Swiper('.myslip2', {
 		      	 spaceBetween: 10,
 			      slidesPerView:'auto',
 			      freeMode: true,
 			      watchSlidesVisibility: true,
 			      watchSlidesProgress: true,  
 			    });
-			    var myslip3 = new Swiper('.myslip3', {
+			    var myslip1 = new Swiper('.myslip1', {
 			     spaceBetween: 10,
 			      thumbs: {
-			        swiper: myslip4
+			        swiper: myslip2
 			      }
 			    });
 		</script>
 		<script type="text/javascript">
 			var integral = echarts.init(document.getElementById('integral'));
-					var studynameARR = [];
-					var studyscoreARR = [];
+					var studynameARR = ["视频学习","音频学习","新闻学习"];
+					var studyscoreARR = [70,80,90];
 					var yuanArr = [{name:"视频",value:70},{name:"评论",value:70},{name:"互动",value:70},{name:"心得",value:70},{name:"音频",value:70},{name:"新闻",value:70}];
 					var integraloption = {
 						color:['#4fa8e2', '#fdd727','#ea3827','#16a187','#2bcc6f','#fc983a'],
@@ -248,9 +431,10 @@
 					        formatter: "{a} <br/>{b} : {c} ({d}%)"
 					    },
 					    legend: {
-					    	type:'scroll',
-					    	left:0,
-					        top:0,
+					    	type:'',
+					    	left:"100px",
+							right:"100px",
+					        top:"20px",
 					        data:yuanArr,
 					    },
 					    textStyle:{
@@ -261,8 +445,8 @@
 					    series : [{
 				            name: '积分',
 				            type: 'pie',
-				            radius : '60%',
-				            center: ['50%', '40%'],
+				            radius : '30%',
+				            center: ['50%', '50%'],
 				            data:yuanArr
 				        }]
 					};
