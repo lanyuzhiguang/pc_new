@@ -107,30 +107,15 @@
 	margin-top: -1px;
 	font-size: 0.9rem;
 }
-<<<<<<< HEAD
-/* 下拉框 */
-.layui-form{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 2.9rem;
-	margin: auto 0;
-	height: 1.9rem;
-}
-.layui-select-title{
-	background: #FFFFFF;
-}
-.layui-input, .layui-select, .layui-textarea{
-	width: 6.4rem;
-	height: 1.9rem;
-	background: url(../../img/select.png) no-repeat;
+.searchBtn {
+	width: 4rem;
+	font-size: 0.9rem;
+	line-height: 0.9rem;
+	padding: 0.5rem 0;
+	border-radius: 0.25rem;
+	background: url(../img/searchbg.png) no-repeat;
 	background-size: 100% 100%;
 	border: none;
-	margin: auto 0;
+	color: #FFFFFF;
 }
-.layui-form-select dl dd:hover,.layui-tab-card>.layui-tab-title .layui-form-selected dl>.layui-this{
-	background: #fbe5e7;
-}
-=======
->>>>>>> 5dd99e30d10cfcf911bae31c7503e3a089c37164
 

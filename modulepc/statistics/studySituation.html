@@ -4,10 +4,169 @@
 		<meta charset="utf-8">
 		<title>学习情况统计</title>
 		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/pc_common.css" />
 		<style type="text/css">
+			.headTitle>div {
+				border-bottom: 0;
+			}
 			.header {
 				padding: 0 1.5rem;
+				background: #FFFFFF;
+				padding-bottom: 2rem;
+			}
+			.header>ul {
+				display: box;
+				display:-webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				webkit-box-pack: space-between;
+				-webkit-justify-content: space-between;
+				justify-content: space-between;
+				-moz-box-pack: space-between;
+				-webkit--moz-box-pack: space-between;
+				box-pack: space-between;
+			}
+			.header>ul>li {
+				width: 17.8%;
+				min-width: 14.7rem;
+				height: 5rem;
+				margin-right: 1.5rem;
+				padding: 1rem 0 0 1.5rem;
+			}
+			.header>ul>li:first-of-type {
+				background: url(../img/studyTime.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.header>ul>li:nth-of-type(2) {
+				background: url(../img/allStudyTime.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.header>ul>li:nth-of-type(3) {
+				background: url(../img/allMessageNum.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.header>ul>li:nth-of-type(4) {
+				background: url(../img/allForumNum.png) no-repeat;
+				background-size: 100% 100%;
+			}
+			.header>ul>li:nth-of-type(5) {
+				background: url(../img/allCommontNum.png) no-repeat;
+				background-size: 100% 100%;
+				margin-right: 0;
+			}
+			.header>ul>li>h3 {
+				color: #FFFFFF;
+				font-size: 1.1rem;
+				line-height: 1.8rem;
+				font-weight: 600;
+			}
+			.header>ul>li>p {
+				color: #FFFFFF;
+				font-size: 0.8rem;
+			}
+			article {
+				margin-top: 1.5rem;
+			}
+			.layui-form{
+				height: 1.9rem;
+			}
+			.layui-input, .layui-select, .layui-textarea{
+				width: 6.4rem;
+				height: 1.9rem;
+				background: url(../img/select.png) no-repeat;
+				background-size: 100% 100%;
+				border: none;
+				margin: auto 0;
+			}
+			.layui-form-select dl dd:hover,.layui-tab-card>.layui-tab-title .layui-form-selected dl>.layui-this{
+				background: #fbe5e7;
+			}
+			.layui-form-item .layui-input-inline {
+				width: auto;
+				min-width: 6.4rem;
+			}
+			
+			.searchBox {
+				position: relative;
+				width: 14.65rem;
+				height: 1.5rem;
+				border-radius: 0.7rem;
+				margin-left: 0.8rem;
+				margin-top: 0.2rem;
+				border: 1px solid #aeadad;
+			}
+			.searchBox>img {
+				width: 0.8rem;
+				height: 0.8rem;
+				line-height: 1.5rem;
+				position: absolute;
+				top: 0.35rem;
+				left: 0.5rem;
+			}
+			.searchBox>input {
+				width: 100%;
+				padding-left: 1.8rem;
+				height: 1.5rem;
+				line-height: 1.5rem;
+				font-size: 0.8rem;
+			}
+			.artTop {
+				margin-bottom: 1rem;
+			}
+			.echartBox {
+				display: box;
+				display:-webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				webkit-box-pack: space-between;
+				-webkit-justify-content: space-between;
+				justify-content: space-between;
+				-moz-box-pack: space-between;
+				-webkit--moz-box-pack: space-between;
+				box-pack: space-between;
+				-webkit-flex-wrap: wrap;
+				-moz-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				-o-flex-wrap: wrap;
+				flex-wrap: wrap;
+			}
+			.echartBox>div {
+				width: 49.4%;
+				min-width: 40.75rem;
+				height: 20.6rem;
+				margin-bottom: 1rem;
+				background-color: #FFFFFF;
+				position: relative;
+			}
+			.echartBox>div>div:last-of-type {
+				width: 100%;
+				height: 100%;
+			}
+			.echartBox>div>div.btn {
+				padding: 0.3rem 0.75rem;
+				border-radius: 0.2rem;
+				color: #fff;
+				font-size: 0.9rem;
+				font-weight: bold;
+				position: absolute;
+				top: 2rem;
+				right: 1.2rem;
+				z-index: 2;
+				background-color: #8a76ee;
+			}
+			.echartBox>div:nth-of-type(2)>div.btn {
+				background-color: #3ab2a3;
+			}
+			.echartBox>div:nth-of-type(3)>div.btn {
+				background-color: #b055f7;
+			}
+			.echartBox>div:nth-of-type(4)>div.btn {
+				background-color: #ff6ea3;
 			}
 		</style>
 	</head>
@@ -22,8 +181,155 @@
 		</header>
 		<div class="header">
 			<ul>
-				<li></li>
+				<li>
+					<h3>0.5小时</h3>
+					<p>人均学习时长</p>
+				</li>
+				<li>
+					<h3>18523小时</h3>
+					<p>年累计学习时长</p>
+				</li>
+				<li>
+					<h3>10502个</h3>
+					<p>年累计心得发布数量</p>
+				</li>
+				<li>
+					<h3>8900个</h3>
+					<p>年累计互动发布数量</p>
+				</li>
+				<li>
+					<h3>987个</h3>
+					<p>年累计评论数量</p>
+				</li>
 			</ul>
 		</div>
+		<article>
+			<div class="artTop clear">
+				<form class="layui-form">
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select name="interest" lay-filter="aihao">
+								<option value="0" selected="">2018</option>
+								<option value="1" >2019</option>
+								<option value="2">2020</option>
+								<option value="3">2021</option>
+								<option value="4">2022</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<select name="interest" lay-filter="aihao">
+								<option value="0" selected="">党支部</option>
+								<option value="1" >2019</option>
+								<option value="2">2020</option>
+								<option value="3">2021</option>
+								<option value="4">2022</option>
+							</select>
+						</div>
+						<div class="layui-input-inline">
+							<div class="searchBox">
+								<img src="../img/search.png" >
+								<input type="text" placeholder="请输入名称">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="echartBox">
+				<div>
+					<div class="btn">学习时长</div>
+					<div id="echarts1"></div>
+				</div>
+				<div>
+					<div class="btn">心得发布数量</div>
+					<div id="echarts2"></div>
+				</div>
+				<div>
+					<div class="btn">互动发布数量</div>
+					<div id="echarts3"></div>
+				</div>
+				<div>
+					<div class="btn">评论数量</div>
+					<div id="echarts4"></div>
+				</div>
+			</div>
+		</article>
 	</body>
 </html>
+<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/clientWidth.js" type="text/javascript" charset="utf-8"></script>
+<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+	layui.use(['element', 'form'], function(){
+		var $ = layui.jquery
+		, form = layui.form
+		,element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+  
+	});
+	initLineData('×××第一支部',$("#echarts1")[0],[820, 932, 901, 934, 1290, 1330, 1320],['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],['#8abcff','#f0f5f9']);
+	initLineData('×××第二支部',$("#echarts2")[0],[820, 932, 901, 934, 1290, 1330, 1320],['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],['#71d8a7','#e7f7f0']);
+	initLineData('×××第三支部',$("#echarts3")[0],[820, 932, 901, 934, 1290, 1330, 1320],['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],['#a180d7','#e6e8f4']);
+	initLineData('×××第四支部',$("#echarts4")[0],[820, 932, 901, 934, 1290, 1330, 1320],['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],['#ee892a','#f7eaec']);
+	function initLineData(title,elem,dataArr,namearr,colorarr) {
+	    var myChart = echarts.init(elem);
+	    var xAxisData =namearr;
+	    var seriesData =dataArr;
+		option = {
+			title: {
+			    text: title,
+			    top: 10,
+			    x: "center",
+			    textStyle: {
+			        color: '#333333',
+			        fontSize: 18
+			    }
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+				data: xAxisData
+			},
+			yAxis: {
+				type: 'value'
+			},
+			grid: {
+			    left: '3%',
+			    right: '7%',
+			    bottom: '8%',
+			    top: "25%",
+			    containLabel: true
+			},
+			series: [{
+				data: seriesData,
+				type: 'line',
+				itemStyle: {  
+					normal: {   //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
+								offset: 0, color: colorarr[0] // 0% 处的颜色
+							},  {
+								offset: 1, color: colorarr[1] // 100% 处的颜色
+							}]
+						),  //背景渐变色 
+						lineStyle: {        // 系列级个性化折线样式  
+							width: 3,  
+							type: 'solid',  
+							 color: "#4fd6d2"
+						}
+					},  
+					emphasis: {  
+						color: '#468cdc',  
+						lineStyle: {        // 系列级个性化折线样式  
+							width:2,  
+							type: 'dotted',  
+							color: "#468cdc" //折线的颜色
+						}  
+					}  
+				},
+				areaStyle: {}
+			}]
+		};
+	    if (option && typeof option === "object") {
+	        myChart.setOption(option, true);
+	    }
+	}
+</script>
